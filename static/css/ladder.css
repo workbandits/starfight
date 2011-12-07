@@ -1,0 +1,84 @@
+/**
+ * Copyright (C) Work Bandits
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+ #hudMiddle {
+    width: 400px;
+    text-align: center;
+}
+
+#hudMiddle h1 {
+    font-weight: normal;
+    font-size: 11px;
+    margin: 2px 0 10px 0;
+}
+#hudMiddle p {
+    font-size: 14px;
+}
+
+#hudMiddleTop {
+    width: 400px;
+    height: 110px;
+    background: url('../image/bloc8.png') 0 0 no-repeat;
+}
+#hudMiddleTop .title {
+    position: absolute;
+    width: 295px;
+    margin: 66px 0 0 44px;
+}
+
+#hudMiddleContent {
+    width: 400px;
+    background: url('../image/bloc2a.png') 0 0 repeat-y;
+}
+
+#hudMiddleContent #ladder {
+    width: 295px;
+    margin: 0 0 0 44px;
+    color: #b7dbff;
+}
+#hudMiddleContent #ladder td {
+    padding: 0 0 5px 0;
+}
+#hudMiddleContent #ladder .position {
+    width: 97px;
+}
+#hudMiddleContent #ladder .player {
+    width: 133px;
+    color: #4a9ae1;
+}
+#hudMiddleContent #ladder .xp {
+    width: 65px;
+}
+
+#hudBottom {
+    width: 400px;
+    height: 78px;
+    background: url('../image/bloc6c.png') 0 0 no-repeat;
+}
+#hudBottom #logout {
+    position: absolute;
+    width: 81px;
+    height: 26px;
+    margin: 44px 0 0 297px;
+    padding: 5px 0 0 0;
+    background: url('../image/bouton_rouge.png') 0 0 no-repeat;
+    text-align: center;
+}
+#hudBottom #logout:hover {
+    background: url('../image/bouton_rouge_rollover.png') 0 0 no-repeat;
+    cursor: pointer;
+}

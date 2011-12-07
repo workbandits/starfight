@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        Copyright (C) Work Bandits
+
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version 2
+        of the License, or (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+    -->
+    <head>
+        <title>Starfight</title>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" href="static/css/reset.css"/>
+        <link rel="stylesheet" href="static/css/jquery.jgrowl.css"/>
+        <link rel="stylesheet" href="static/css/common.css"/>
+        <link rel="stylesheet" href="static/css/army.css"/>
+    </head>
+
+    <body>
+        <div id="site">
+            <div id="ban"></div>
+            <div id="hudTop">
+                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
+                <div id="xp"><span data-bind="text: playerXp"></span></div>
+                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="nav">
+                    <a href="report.html"><div class="buttonNav">Report</div></a>
+                    <a href="resource.html"><div class="buttonNav">Resource</div></a>
+                    <a href="army.html"><div class="buttonNavActive">Army</div></a>
+                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="ladder.html"><div class="buttonNav">Ladder</div></a>
+                </div>
+            </div>
+            <div id="hudMiddle">
+                <div id="attack"><span data-bind="text: playerAttack"></span></div>
+                <div id="defense"><span data-bind="text: playerDefense"></span></div>
+                
+                <div id="hudMiddleTop">
+                    <div id="hudMiddleTopLeft" class="left">
+                        <div id="hudMiddleTopQuantity"><span data-bind="text: army()[0].quantity"></span></div>
+                    </div>
+                    <div id="hudMiddleTopRight">
+                        <div id="hudMiddleTopUnitName"><span data-bind="text: army()[0].itemTemplate.name"></span></div>
+                        <div id="hudMiddleTopAttack"><span data-bind="text: army()[0].itemTemplate.dynProp.attack"></span></div>
+                        <div id="hudMiddleTopDefense"><span data-bind="text: army()[0].itemTemplate.dynProp.defense"></span></div>
+                        <div id="hudMiddleTopPrice">Cost: <span data-bind="text: army()[0].itemTemplate.dynProp.price"></span></div>
+                        <form>
+                            <input type="text" data-bind="attr: {name: army()[0].itemTemplate.ref}"/>
+                            <input type="submit" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="hudMiddleGeneric image02">
+                    <div class="hudMiddleGenericLeft left">
+                        <div class="hudMiddleGenericTopQuantity"><span data-bind="text: army()[1].quantity"></span></div>
+                    </div>
+                    <div class="hudMiddleGenericRight">
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: army()[1].itemTemplate.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: army()[1].itemTemplate.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: army()[1].itemTemplate.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: army()[1].itemTemplate.dynProp.defense"></span></div>
+                        <form>
+                            <input type="text" data-bind="attr: {name: army()[1].itemTemplate.ref}"/>
+                            <input type="submit" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="hudMiddleGeneric image03">
+                    <div class="hudMiddleGenericLeft left">
+                        <div class="hudMiddleGenericTopQuantity"><span data-bind="text: army()[2].quantity"></span></div>
+                    </div>
+                    <div class="hudMiddleGenericRight">
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: army()[2].itemTemplate.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: army()[2].itemTemplate.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: army()[2].itemTemplate.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: army()[2].itemTemplate.dynProp.defense"></span></div>
+                        <form>
+                            <input type="text" data-bind="attr: {name: army()[2].itemTemplate.ref}"/>
+                            <input type="submit" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="hudMiddleGeneric image04">
+                    <div class="hudMiddleGenericLeft left">
+                        <div class="hudMiddleGenericTopQuantity"><span data-bind="text: army()[3].quantity"></span></div>
+                    </div>
+                    <div class="hudMiddleGenericRight">
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: army()[3].itemTemplate.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: army()[3].itemTemplate.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: army()[3].itemTemplate.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: army()[3].itemTemplate.dynProp.defense"></span></div>
+                        <form>
+                            <input type="text" data-bind="attr: {name: army()[3].itemTemplate.ref}"/>
+                            <input type="submit" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="hudBottom">
+                <div id="logout">Logout</div>
+            </div>
+        </div>
+        <script src="static/js/lib/all.js"></script>
+        <script src="static/js/lib/jquery-1.7.min.js"></script>
+        <script src="static/js/lib/jquery.tmpl.js"></script>
+        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery.jgrowl.js"></script>
+        <script src="static/js/army.js"></script>
+        <script src="static/js/connect.js"></script>
+    </body>
+</html>
+
+

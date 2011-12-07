@@ -1,0 +1,64 @@
+/**
+ * Copyright (C) Work Bandits
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+ #hudTop {
+    width: 400px;
+    height: 87px;
+    background: url('../image/bloc3.png') 0 0 no-repeat;
+}
+
+#hudTop #login {
+    width: 81px;
+    height: 26px;
+    margin: 45px 0 0 157px;
+    background-color: transparent;
+    background-image: url('../image/bouton_vert.png');
+    border: none;
+    font-size: 11px;
+    color: #fff;
+}
+#hudTop #login:hover {
+    background-image: url('../image/bouton_vert_rollover.png');
+    cursor: pointer;
+}
+
+#hudMiddle {
+    width: 400px;
+    height: 110px;
+    background: url('../image/bloc2.png') 0 0 no-repeat;
+    text-align: center;
+}
+
+#hudMiddleContent {
+    width: 320px;
+    margin: 0 0 0 38px;
+    padding: 20px 0 0 0;
+}
+
+#hudMiddle h1 {
+    font-size: 14px;
+    margin: 0 0 20px 0;
+}
+#hudMiddle p {
+    font-size: 14px;
+}
+
+#hudBottom {
+    width: 400px;
+    height: 37px;
+    background: url('../image/bloc4.png') 0 0 no-repeat;
+}

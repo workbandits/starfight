@@ -1,0 +1,85 @@
+/**
+ * Copyright (C) Work Bandits
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+ body {
+    margin-top:0;
+    margin-bottom:15px;
+    background: url('../image/BG.jpg') 0 0 repeat-x;
+    background-color:#000;
+    font-family:Arial,sans-serif;
+    color: #fff;
+}
+
+#site {
+    width:400px;
+    margin:auto;
+}
+
+#ban {
+    width: 400px;
+    height: 48px;
+    background: url('../image/titre.png') 0 0 no-repeat;
+}
+
+#hudTop {
+    width: 400px;
+    height: 87px;
+    background: url('../image/bloc1.png') 0 0 no-repeat;
+}
+
+#hudTop #resource {
+    position:absolute;
+    margin: 8px 0 0 100px;
+}
+#hudTop #xp {
+    position:absolute;
+    width: 50px;
+    margin: 8px 0 0 171px;
+    text-align: center;
+}
+#hudTop #pop {
+    position: absolute;
+    width: 45px;
+    margin: 8px 0 0 253px;
+    text-align: right;
+}
+
+#hudTop #nav {
+    width: 380px;
+    margin: 0 0 0 20px; 
+    padding: 45px 0 0 0;
+}
+#hudTop .buttonNav, #hudTop .buttonNavActive {
+    float: left;
+    width: 70px;
+    height: 20px;
+    margin: 0 2px 0 0;
+    padding: 6px 0 0 0;
+    background-color: transparent;
+    background-image: url('../image/bouton_bleu.png');
+    border: none;
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+}
+#hudTop .buttonNav:hover {
+    background-image: url('../image/bouton_bleu_rollover.png');
+    cursor: pointer;
+}
+#hudTop .buttonNavActive {
+    background: url('../image/bouton_bleu_on.png') 0 0 no-repeat;
+}

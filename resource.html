@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        Copyright (C) Work Bandits
+
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version 2
+        of the License, or (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+    -->
+    <head>
+        <title>Starfight</title>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" href="static/css/reset.css"/>
+        <link rel="stylesheet" href="static/css/jquery.jgrowl.css"/>
+        <link rel="stylesheet" href="static/css/common.css"/>
+        <link rel="stylesheet" href="static/css/resource.css"/>
+    </head>
+
+    <body>
+        <div id="site">
+            <div id="ban"></div>
+            <div id="hudTop">
+                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
+                <div id="xp"><span data-bind="text: playerXp"></span></div>
+                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="nav">
+                    <a href="report.html"><div class="buttonNav">Report</div></a>
+                    <a href="resource.html"><div class="buttonNavActive">Resource</div></a>
+                    <a href="army.html"><div class="buttonNav">Army</div></a>
+                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="ladder.html"><div class="buttonNav">Ladder</div></a>
+                </div>
+            </div>
+            <div id="hudMiddle">
+                <div id="hudMiddleContent">
+                    <div id="current">
+                        <div class="left">Level <span data-bind="text: currentLvl"></span></div>
+                        <div id="production">
+                            <p>Production :</p>
+                            <p><span data-bind="text: currentProduction"></span> by hour</p>
+                        </div>
+                    </div>
+                    <div id="next">
+                        <div id="lvlNext">Level <span data-bind="text: nextLvl"></span></div>
+                        <div id="xpMin">XP Min<br/> <span data-bind="text: nextXpMin"></span></div>
+                        <div id="productionNext"><span data-bind="text: nextProduction"></span> by hour</div>
+                        <a href="/action/upgrade-mine/run" id="upgradeMine"><div id="upgrade"><span data-bind="text: nextCost"></span></div></a>
+                    </div>
+                    <div id="logout">Logout</div>
+                </div>
+            </div>
+        </div>
+        <script src="static/js/lib/all.js"></script>
+        <script src="static/js/lib/jquery-1.7.min.js"></script>
+        <script src="static/js/lib/jquery.tmpl.js"></script>
+        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery.jgrowl.js"></script>
+        <script src="static/js/resource.js"></script>
+        <script src="static/js/connect.js"></script>
+    </body>
+</html>

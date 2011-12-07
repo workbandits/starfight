@@ -1,0 +1,199 @@
+/**
+ * Copyright (C) Work Bandits
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+#hudMiddle {
+    width: 400px;
+    text-align: center;
+}
+
+#hudMiddle h1 {
+    font-weight: normal;
+    font-size: 11px;
+    margin: 2px 0 10px 0;
+}
+#hudMiddle p {
+    font-size: 14px;
+}
+
+#hudMiddle #attack {
+    position: absolute;
+    margin: 4px 0 0 130px;
+    width: 35px;
+}
+
+#hudMiddle #defense {
+    position: absolute;
+    margin: 4px 0 0 220px;
+    width: 35px;
+}
+
+#hudMiddleTopLeft {
+    width: 97px;
+    height: 103px;
+    background: url('../image/Unite01.png') 0 0 no-repeat;
+}
+#hudMiddleTopRight {
+    width: 304px;
+    height: 103px;
+    margin: 0 0 0 97px;
+    background: url('../image/bloc6a.png') 0 0 no-repeat;
+}
+#hudMiddleTopQuantity {
+    position: absolute;
+    width: 35px;
+    margin: 78px 0 0 44px;
+    font-weight: bold;
+    text-align: left;
+}
+#hudMiddleTopUnitName {
+    position: absolute;
+    margin: 44px 0 0 0;
+    font-size: 14px;
+    width: 60px;
+}
+#hudMiddleTopAttack {
+    position: absolute;
+    margin: 61px 0 0 0;
+    font-size: 11px;
+    width: 39px;
+    text-align: right;
+}
+#hudMiddleTopDefense {
+    position: absolute;
+    margin: 78px 0 0 0;
+    font-size: 11px;
+    width: 39px;
+    text-align: right;
+}
+#hudMiddleTopPrice {
+    position: absolute;
+    margin: 58px 0 0 85px;
+    font-size: 11px;
+    width: 60px;
+    text-align: right;
+}
+
+.hudMiddleGenericLeft {
+    width: 97px;
+    height: 66px;
+}
+.image02 {
+    background: url('../image/Unite02.png') 0 0 no-repeat;
+}
+.image03 {
+    background: url('../image/Unite03.png') 0 0 no-repeat;
+}
+.image04 {
+    background: url('../image/Unite04.png') 0 0 no-repeat;
+}
+.hudMiddleGenericRight {
+    width: 304px;
+    height: 66px;
+    margin: 0 0 0 97px;
+    background: url('../image/bloc6b.png') 0 0 no-repeat;
+}
+.hudMiddleGenericTopQuantity {
+    width: 35px;
+    margin: 41px 0 0 44px;
+    font-weight: bold;
+    text-align: left;
+}
+.hudMiddleGenericUnitName {
+    padding: 6px 0 0 8px;
+    font-size: 14px;
+    width: 48px;
+}
+.hudMiddleGenericAttack {
+    float: left;
+    margin: 1px 0 0 4px;
+    font-size: 11px;
+    width: 35px;
+    text-align: right;
+}
+.hudMiddleGenericPrice {
+    margin: -2px 0 0 65px;
+    font-size: 11px;
+    width: 80px;
+    text-align: right;
+}
+.hudMiddleGenericDefense {
+    float: left;
+    margin: 7px 0 0 -35px;
+    font-size: 11px;
+    width: 35px;
+    text-align: right;
+}
+form {
+    position: absolute;
+    width: 85px;
+    margin: 0 0 0 176px;
+}
+input[type='text'] {
+    background: transparent;
+    border: none;
+    width: 80px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    margin: -56px 0 0 0;
+}
+input[type='submit'] {
+    width: 81px;
+    height: 26px;
+    background-color: transparent;
+    background-image: url('../image/bouton_vert.png');
+    border: none;
+    font-size: 11px;
+    color: #fff;
+    margin: -31px 0 0 0;
+}
+input[type='submit']:hover {
+    background-image: url('../image/bouton_vert_rollover.png');
+    cursor: pointer;
+}
+#hudMiddleTopRight input[type='text'] {
+    margin: 42px 0 0 0;
+}
+#hudMiddleTopRight input[type='submit'] {
+    margin: 3px 0 0 0;
+}
+#hudMiddleGenericRight input[type='text'] {
+    margin: 80px 0 0 178px;
+}
+#hudMiddleGenericRight input[type='submit'] {
+    margin: 105px 0 0 178px;
+}
+
+
+#hudBottom {
+    width: 400px;
+    height: 78px;
+    background: url('../image/bloc6c.png') 0 0 no-repeat;
+}
+#hudBottom #logout {
+    position: absolute;
+    width: 81px;
+    height: 26px;
+    margin: 44px 0 0 297px;
+    padding: 5px 0 0 0;
+    background: url('../image/bouton_rouge.png') 0 0 no-repeat;
+    text-align: center;
+}
+#hudBottom #logout:hover {
+    background: url('../image/bouton_rouge_rollover.png') 0 0 no-repeat;
+    cursor: pointer;
+}

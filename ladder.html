@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        Copyright (C) Work Bandits
+
+        This program is free software; you can redistribute it and/or
+        modify it under the terms of the GNU General Public License
+        as published by the Free Software Foundation; either version 2
+        of the License, or (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+    -->
+    <head>
+        <title>Starfight</title>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" href="static/css/reset.css"/>
+        <link rel="stylesheet" href="static/css/jquery.jgrowl.css"/>
+        <link rel="stylesheet" href="static/css/common.css"/>
+        <link rel="stylesheet" href="static/css/ladder.css"/>
+    </head>
+
+    <body>
+        <div id="site">
+            <div id="ban"></div>
+            <div id="hudTop">
+                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
+                <div id="xp"><span data-bind="text: playerXp"></span></div>
+                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="nav">
+                    <a href="report.html"><div class="buttonNav">Report</div></a>
+                    <a href="resource.html"><div class="buttonNav">Resource</div></a>
+                    <a href="army.html"><div class="buttonNav">Army</div></a>
+                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="ladder.html"><div class="buttonNavActive">Ladder</div></a>
+                </div>
+            </div>
+            <div id="hudMiddle">
+                <div id="hudMiddleTop">
+                    <table class="title">
+                        <tbody>
+                            <tr>
+                                <td class="name">Pos.</td>
+                                <td class="xp">Player</td>
+                                <td class="cost">XP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="hudMiddleContent" data-bind="template: {name: 'template'}">
+                    <!-- inject template -->
+                </div>
+            </div>
+            <div id="hudBottom">
+                <div id="logout">Logout</div>
+            </div>
+        </div>
+        <script src="static/js/lib/all.js"></script>
+        <script src="static/js/lib/jquery-1.7.min.js"></script>
+        <script src="static/js/lib/jquery.tmpl.js"></script>
+        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery.jgrowl.js"></script>
+        <script src="static/js/ladder.js"></script>
+        <script src="static/js/connect.js"></script>
+        <script id="template" type="text/html">
+            <table id="ladder">
+                <tbody>
+                    {{each(i, val) ladder}}
+                        <tr>
+                            <td class="position">${val.index}</td>
+                            <td class="player">${val.player.name}</td>
+                            <td class="xp">${val.player.dynProp.xp}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </script>
+    </body>
+</html>
