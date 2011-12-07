@@ -42,7 +42,7 @@ function onLoad(response) {
         ko.applyBindings(myViewModel);
     });
         
-    $('td a').on('click', function(e) {
+    $('td a').click(function(e) {
         e.preventDefault();
 
         DI.api($(this).attr('href'), 'get', function(response) {

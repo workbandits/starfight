@@ -31,8 +31,9 @@ function onLoad(response) {
         }
         ko.applyBindings(myViewModel);
     
-        if ($.data($('#upgradeMine').get(0), 'events') == undefined || $.data($('#upgradeMine').get(0), 'events').click.length == 0) {
-            $('#upgradeMine').on('click', function(e) {
+        //if ($.data($('#upgradeMine').get(0), 'events') == undefined || $.data($('#upgradeMine').get(0), 'events').click.length == 0) {
+            //$('#upgradeMine').on('click', function(e) {
+            $('#upgradeMine').click(function(e) {
                 e.preventDefault();
 
                 DI.api('/action/upgrade-mine/run', function(response) {
@@ -57,6 +58,6 @@ function onLoad(response) {
                     }
                 });
             });
-        }
+        //}
     });
 }
