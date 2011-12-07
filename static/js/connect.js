@@ -17,7 +17,7 @@
  */
 window.diAsyncInit = function() {
     DI.init({
-        apiKey: '2e3824b2dc3d4da0aad123b881427d67', 
+        apiKey: 'fake_api_key', 
         status: true,
         cookie: true
     });
