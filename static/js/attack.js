@@ -41,7 +41,7 @@ function onLoad(response) {
          
         ko.applyBindings(myViewModel);
         
-        $('td a').click(function(e) {
+        $('td a').unbind('click').click(function(e) {
             e.preventDefault();
 
             DI.api($(this).attr('href'), 'get', function(response) {

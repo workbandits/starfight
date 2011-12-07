@@ -31,33 +31,30 @@ function onLoad(response) {
         }
         ko.applyBindings(myViewModel);
     
-        //if ($.data($('#upgradeMine').get(0), 'events') == undefined || $.data($('#upgradeMine').get(0), 'events').click.length == 0) {
-            //$('#upgradeMine').on('click', function(e) {
-            $('#upgradeMine').click(function(e) {
-                e.preventDefault();
+        $('#upgradeMine').unbind('click').click(function(e) {
+            e.preventDefault();
 
-                DI.api('/action/upgrade-mine/run', function(response) {
-                    if (response.data.status == 'success') {
-                        // message
-                        $.jGrowl(response.data.message);
+            DI.api('/action/upgrade-mine/run', function(response) {
+                if (response.data.status == 'success') {
+                    // message
+                    $.jGrowl(response.data.message);
 
-                        // maj affichage
-                        DI.api('/action/on-load-mine-page/run', function(response) {
-                            myViewModel.platiniumQuantity(response.data.platinium.quantity)
-                                .playerNbAttack(response.data.player.dynProp.nbAttack)
-                                .currentLvl(response.data.current.lvl)
-                                .currentProduction(response.data.current.production)
-                                .nextLvl(response.data.next.lvl)
-                                .nextProduction(response.data.next.production)
-                                .nextCost(response.data.next.cost)
-                                .nextXpMin(response.data.next.xpMin);
-                        });
-                    } else {
-                        // message
-                        $.jGrowl(response.data.message);
-                    }
-                });
+                    // maj affichage
+                    DI.api('/action/on-load-mine-page/run', function(response) {
+                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
+                            .playerNbAttack(response.data.player.dynProp.nbAttack)
+                            .currentLvl(response.data.current.lvl)
+                            .currentProduction(response.data.current.production)
+                            .nextLvl(response.data.next.lvl)
+                            .nextProduction(response.data.next.production)
+                            .nextCost(response.data.next.cost)
+                            .nextXpMin(response.data.next.xpMin);
+                    });
+                } else {
+                    // message
+                    $.jGrowl(response.data.message);
+                }
             });
-        //}
+        });
     });
 }
