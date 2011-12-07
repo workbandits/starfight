@@ -28,7 +28,7 @@ function onLoad(response) {
         }
         ko.applyBindings(myViewModel);
         
-        $('input[type=submit]').click(function(e) {
+        $('input[type=submit]').unbind('click').click(function(e) {
             e.preventDefault();
 
             var inputNode = $(this).prev();
