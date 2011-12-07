@@ -40,13 +40,13 @@ function onLoad(response) {
         }, myViewModel); 
          
         ko.applyBindings(myViewModel);
+    });
         
-        $('td a').on('click', function(e) {
-            e.preventDefault();
-            
-            DI.api($(this).attr('href'), 'get', function(response) {
-                document.location.href='report.html';
-            });
+    $('td a').on('click', function(e) {
+        e.preventDefault();
+
+        DI.api($(this).attr('href'), 'get', function(response) {
+            document.location.href='report.html';
         });
     });
 }

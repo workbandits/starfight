@@ -27,33 +27,33 @@ function onLoad(response) {
             army: ko.observableArray(response.data.army)
         }
         ko.applyBindings(myViewModel);
+    });
         
-        $('input[type=submit]').on('click', function(e) {
-            e.preventDefault();
+    $('input[type=submit]').on('click', function(e) {
+        e.preventDefault();
 
-            var inputNode = $(this).prev();
+        var inputNode = $(this).prev();
 
-            DI.api('/action/create-army/run', 'post', {"ref": inputNode.attr('name'), "quantity": inputNode.val()}, function(response) {
-               if (response.data.status == 'success') {
-                    // message
-                    $.jGrowl(response.data.message);
+        DI.api('/action/create-army/run', 'post', {"ref": inputNode.attr('name'), "quantity": inputNode.val()}, function(response) {
+           if (response.data.status == 'success') {
+                // message
+                $.jGrowl(response.data.message);
 
-                    // update display
-                    DI.api('/action/on-load-army-page/run', function(response) {
-                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
-                            .playerPop(response.data.player.dynProp.pop)
-                            .playerNbAttack(response.data.player.dynProp.nbAttack)
-                            .playerAttack(response.data.player.dynProp.attack)
-                            .playerDefense(response.data.player.dynProp.defense)
-                            .army(response.data.army);
-                    });
-                } else {
-                    // message
-                    $.jGrowl(response.data.message);
-                }
-            });
-
-            inputNode.val('');
+                // update display
+                DI.api('/action/on-load-army-page/run', function(response) {
+                    myViewModel.platiniumQuantity(response.data.platinium.quantity)
+                        .playerPop(response.data.player.dynProp.pop)
+                        .playerNbAttack(response.data.player.dynProp.nbAttack)
+                        .playerAttack(response.data.player.dynProp.attack)
+                        .playerDefense(response.data.player.dynProp.defense)
+                        .army(response.data.army);
+                });
+            } else {
+                // message
+                $.jGrowl(response.data.message);
+            }
         });
+
+        inputNode.val('');
     });
 }
