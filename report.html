@@ -58,11 +58,11 @@
         <script src="static/js/connect.js"></script>
         <script id="template" type="text/html">
             {{if $data.status === 'spy'}}
-                <p><span data-bind="text: date"></span> You spy <span data-bind="text: player" class="player"></span> : <span data-bind="text: pop"></span> units, <span data-bind="text: gold"></span> gold.</p>
+                <p><span data-bind="text: date"></span> You spy <span data-bind="text: player" class="player"></span> : <span data-bind="text: pop"></span> units, <span data-bind="text: platinium"></span> platinium.</p>
             {{else $data.status === 'win'}}
-                <p><span data-bind="text: date"></span> You win against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You win <span data-bind="text: gold"></span> gold.</p>
+                <p><span data-bind="text: date"></span> You win against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You win <span data-bind="text: platinium"></span> platinium.</p>
             {{else}}
-                <p><span data-bind="text: date"></span> You lose against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You lose <span data-bind="text: gold"></span> gold.</p>
+                <p><span data-bind="text: date"></span> You lose against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You lose <span data-bind="text: platinium"></span> platinium.</p>
             {{/if}}
         </script>
     </body>
