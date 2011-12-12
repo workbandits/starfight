@@ -24,7 +24,7 @@ function onLoad(response) {
             playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
             messages: response.data.player.dynProp.messages
         };
-        
+
         ko.applyBindings(myViewModel);
     });
 }
