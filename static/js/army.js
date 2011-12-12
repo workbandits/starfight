@@ -17,6 +17,28 @@
  */
 function onLoad(response) {
     DI.api('/action/on-load-army-page/run', function(response) {
+        
+        function mapDictionaryToArray(dictionary) {
+            var result = [];
+            for (var key in dictionary) {
+                if (dictionary.hasOwnProperty(key)) {
+                    result.push({key: key, value: dictionary[key]}); 
+                }  
+            }
+
+            return result;
+        }
+        
+        function getQuantity(dictionary, ref) {
+            for (var i = 0; i < dictionary.length; i++) {
+                if (dictionary[i].key === ref) {
+                    return dictionary[i].value.quantity;
+                }
+            }
+            
+            return 0;
+        }
+        
         var myViewModel = {
             platiniumQuantity: ko.observable(response.data.platinium.quantity),
             playerPop: ko.observable(response.data.player.dynProp.pop),
@@ -24,8 +46,23 @@ function onLoad(response) {
             playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
             playerAttack: ko.observable(response.data.player.dynProp.attack),
             playerDefense: ko.observable(response.data.player.dynProp.defense),
-            army: ko.observableArray(response.data.army)
+            army: ko.observableArray(mapDictionaryToArray(response.data.army)),
+            items: ko.observableArray(response.data.items)
         }
+        
+        myViewModel.inventory = ko.dependentObservable(function() {
+            var result = [];
+            
+            ko.utils.arrayForEach(this.items(), function(item) {
+                result.push({
+                    quantity: getQuantity(myViewModel.army(), item.ref),
+                    itemTemplate: item
+                });
+            });
+            
+            return result;
+        }, myViewModel);
+        
         ko.applyBindings(myViewModel);
         
         $('input[type=submit]').unbind('click').click(function(e) {
@@ -45,7 +82,8 @@ function onLoad(response) {
                         .playerNbAttack(response.data.player.dynProp.nbAttack)
                         .playerAttack(response.data.player.dynProp.attack)
                         .playerDefense(response.data.player.dynProp.defense)
-                        .army(response.data.army);
+                        .army(mapDictionaryToArray(response.data.army))
+                        .items(response.data.items);
                     });
                 } else {
                     // message
