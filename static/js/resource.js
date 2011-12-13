@@ -30,7 +30,7 @@ function onLoad(response) {
             nextXpMin: ko.observable(response.data.next.xpMin)
         }
         ko.applyBindings(myViewModel);
-    
+
         $('#upgradeMine').unbind('click').click(function(e) {
             e.preventDefault();
 
@@ -54,6 +54,30 @@ function onLoad(response) {
                     // message
                     $.jGrowl(response.data.message);
                 }
+            });
+        });
+     
+        $('#buyPlatinium').unbind('click').click(function(e) {
+            e.preventDefault();
+            
+            DI.api($(this).attr('href'), 'post', {'_method':'POST'}, function(response) {
+               if (response.status == 'success') {
+                    $.jGrowl('Congratz! You buy 100 platinium for 50D! Points!');
+                   
+                    // maj affichage
+                    DI.api('/action/on-load-mine-page/run', function(response) {
+                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
+                            .playerNbAttack(response.data.player.dynProp.nbAttack)
+                            .currentLvl(response.data.current.lvl)
+                            .currentProduction(response.data.current.production)
+                            .nextLvl(response.data.next.lvl)
+                            .nextProduction(response.data.next.production)
+                            .nextCost(response.data.next.cost)
+                            .nextXpMin(response.data.next.xpMin);
+                    });
+               } else {
+                    $.jGrowl(response.message);
+               }
             });
         });
     });
