@@ -46,7 +46,10 @@
 }
 #hudMiddleContent #current #production {
     position: absolute;
-    margin: 10px 0 0 90px;
+    margin: 0 0 0 90px;
+}
+#hudMiddleContent #current #production a {
+    color: #FF5E99;
 }
 #hudMiddleContent #current p {
     font-size: 11px;    
