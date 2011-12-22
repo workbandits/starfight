@@ -51,12 +51,12 @@
                         <div id="hudMiddleTopQuantity"><span data-bind="text: inventory()[0].quantity"></span></div>
                     </div>
                     <div id="hudMiddleTopRight">
-                        <div id="hudMiddleTopUnitName"><span data-bind="text: inventory()[0].itemTemplate.name"></span></div>
-                        <div id="hudMiddleTopAttack"><span data-bind="text: inventory()[0].itemTemplate.dynProp.attack"></span></div>
-                        <div id="hudMiddleTopDefense"><span data-bind="text: inventory()[0].itemTemplate.dynProp.defense"></span></div>
-                        <div id="hudMiddleTopPrice">Cost: <span data-bind="text: inventory()[0].itemTemplate.dynProp.price"></span></div>
+                        <div id="hudMiddleTopUnitName"><span data-bind="text: inventory()[0].item.name"></span></div>
+                        <div id="hudMiddleTopAttack"><span data-bind="text: inventory()[0].item.dynProp.attack"></span></div>
+                        <div id="hudMiddleTopDefense"><span data-bind="text: inventory()[0].item.dynProp.defense"></span></div>
+                        <div id="hudMiddleTopPrice">Cost: <span data-bind="text: inventory()[0].item.dynProp.price"></span></div>
                         <form>
-                            <input type="text" data-bind="attr: {name: inventory()[0].itemTemplate.ref}"/>
+                            <input type="text" data-bind="attr: {name: inventory()[0].item.ref}"/>
                             <input type="submit" value="Create"/>
                         </form>
                     </div>
@@ -66,12 +66,12 @@
                         <div class="hudMiddleGenericTopQuantity"><span data-bind="text: inventory()[1].quantity"></span></div>
                     </div>
                     <div class="hudMiddleGenericRight">
-                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[1].itemTemplate.name"></span></div>
-                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[1].itemTemplate.dynProp.attack"></span></div>
-                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[1].itemTemplate.dynProp.price"></span></div>
-                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[1].itemTemplate.dynProp.defense"></span></div>
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[1].item.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[1].item.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[1].item.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[1].item.dynProp.defense"></span></div>
                         <form>
-                            <input type="text" data-bind="attr: {name: inventory()[1].itemTemplate.ref}"/>
+                            <input type="text" data-bind="attr: {name: inventory()[1].item.ref}"/>
                             <input type="submit" value="Create"/>
                         </form>
                     </div>
@@ -81,12 +81,12 @@
                         <div class="hudMiddleGenericTopQuantity"><span data-bind="text: inventory()[2].quantity"></span></div>
                     </div>
                     <div class="hudMiddleGenericRight">
-                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[2].itemTemplate.name"></span></div>
-                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[2].itemTemplate.dynProp.attack"></span></div>
-                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[2].itemTemplate.dynProp.price"></span></div>
-                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[2].itemTemplate.dynProp.defense"></span></div>
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[2].item.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[2].item.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[2].item.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[2].item.dynProp.defense"></span></div>
                         <form>
-                            <input type="text" data-bind="attr: {name: inventory()[2].itemTemplate.ref}"/>
+                            <input type="text" data-bind="attr: {name: inventory()[2].item.ref}"/>
                             <input type="submit" value="Create"/>
                         </form>
                     </div>
@@ -96,12 +96,12 @@
                         <div class="hudMiddleGenericTopQuantity"><span data-bind="text: inventory()[3].quantity"></span></div>
                     </div>
                     <div class="hudMiddleGenericRight">
-                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[3].itemTemplate.name"></span></div>
-                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[3].itemTemplate.dynProp.attack"></span></div>
-                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[3].itemTemplate.dynProp.price"></span></div>
-                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[3].itemTemplate.dynProp.defense"></span></div>
+                        <div class="hudMiddleGenericUnitName"><span data-bind="text: inventory()[3].item.name"></span></div>
+                        <div class="hudMiddleGenericAttack"><span data-bind="text: inventory()[3].item.dynProp.attack"></span></div>
+                        <div class="hudMiddleGenericPrice">Cost: <span data-bind="text: inventory()[3].item.dynProp.price"></span></div>
+                        <div class="hudMiddleGenericDefense"><span data-bind="text: inventory()[3].item.dynProp.defense"></span></div>
                         <form>
-                            <input type="text" data-bind="attr: {name: inventory()[3].itemTemplate.ref}"/>
+                            <input type="text" data-bind="attr: {name: inventory()[3].item.ref}"/>
                             <input type="submit" value="Create"/>
                         </form>
                     </div>

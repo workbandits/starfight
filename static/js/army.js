@@ -56,7 +56,7 @@ function onLoad(response) {
             ko.utils.arrayForEach(this.items(), function(item) {
                 result.push({
                     quantity: getQuantity(myViewModel.army(), item.ref),
-                    itemTemplate: item
+                    item: item
                 });
             });
             

@@ -17,7 +17,7 @@
  */
 window.diAsyncInit = function() {
     DI.init({
-        apiKey: 'fake_api_key', 
+        apiKey: '2e3824b2dc3d4da0aad123b881427d67', 
         status: true,
         cookie: true
     });
@@ -41,7 +41,7 @@ window.diAsyncInit = function() {
 };
 (function() {
     var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol + '//api.dingg.it/all.js';
+    e.src = document.location.protocol + '//localhost/starfight/static/js/lib/all.js';
     var s = document.getElementsByTagName('script')[0]; 
     s.parentNode.insertBefore(e, s);
 }());
