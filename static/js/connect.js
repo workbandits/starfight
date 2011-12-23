@@ -47,25 +47,28 @@ window.diAsyncInit = function() {
 }());
 
 function login() {
-    document.location.href='report.html';
-}
-
-function logout() {
-    document.location.href='index.html';
-}
-
-$('#login').on('click', function() {
     DI.login(function(response) {
         if (response.session) {
             document.location.href='report.html';
         }
     });
+}
+
+function logout() {
+    DI.logout(function() {
+        
+    });
+    document.location.href='index.html';
+}
+
+$('#login').on('click', function(e) {
+    e.preventDefault();
+    
+    login();
 });
 
 $('#logout').on('click', function(e) {
     e.preventDefault();
     
-    DI.logout(function() {
-        document.location.href='index.html';
-    });
+    logout();
 });

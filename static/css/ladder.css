@@ -45,22 +45,22 @@
     background: url('../image/bloc2a.png') 0 0 repeat-y;
 }
 
-#hudMiddleContent #ladder {
+#hudMiddleContent .ladder {
     width: 295px;
     margin: 0 0 0 44px;
     color: #b7dbff;
 }
-#hudMiddleContent #ladder td {
+#hudMiddleContent .ladder td {
     padding: 0 0 5px 0;
 }
-#hudMiddleContent #ladder .position {
+#hudMiddleContent .ladder .position {
     width: 97px;
 }
-#hudMiddleContent #ladder .player {
+#hudMiddleContent .ladder .player {
     width: 133px;
     color: #4a9ae1;
 }
-#hudMiddleContent #ladder .xp {
+#hudMiddleContent .ladder .xp {
     width: 65px;
 }
 

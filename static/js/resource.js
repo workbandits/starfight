@@ -17,63 +17,35 @@
  */
 function onLoad(response) {
     DI.api('/action/on-load-mine-page/run', function(response) {
-        var myViewModel = {
-            platiniumQuantity: ko.observable(response.data.platinium.quantity),
-            playerPop: response.data.player.dynProp.pop,
-            playerXp: response.data.player.dynProp.xp,
-            playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
-            currentLvl: ko.observable(response.data.current.lvl),
-            currentProduction: ko.observable(response.data.current.production),
-            nextLvl: ko.observable(response.data.next.lvl),
-            nextProduction: ko.observable(response.data.next.production),
-            nextCost: ko.observable(response.data.next.cost),
-            nextXpMin: ko.observable(response.data.next.xpMin)
-        }
+        var myViewModel = ko.mapping.fromJS(response.data);
+        
         ko.applyBindings(myViewModel);
 
-        $('#upgradeMine').unbind('click').click(function(e) {
+        $('#upgradeMine').on('click', function(e) {
             e.preventDefault();
 
             DI.api('/action/upgrade-mine/run', function(response) {
-                if (response.data.status == 'success') {
-                    // message
+                if (response.data.status === 'success') {
                     $.jGrowl(response.data.message);
 
-                    // maj affichage
                     DI.api('/action/on-load-mine-page/run', function(response) {
-                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
-                            .playerNbAttack(response.data.player.dynProp.nbAttack)
-                            .currentLvl(response.data.current.lvl)
-                            .currentProduction(response.data.current.production)
-                            .nextLvl(response.data.next.lvl)
-                            .nextProduction(response.data.next.production)
-                            .nextCost(response.data.next.cost)
-                            .nextXpMin(response.data.next.xpMin);
+                        ko.mapping.fromJS(response.data, myViewModel);
                     });
                 } else {
-                    // message
                     $.jGrowl(response.data.message);
                 }
             });
         });
      
-        $('#buyPlatinium').unbind('click').click(function(e) {
+        $('#buyPlatinium').on('click', function(e) {
             e.preventDefault();
             
             DI.api($(this).attr('href'), 'post', {'_method':'POST'}, function(response) {
-               if (response.status == 'success') {
+               if (response.status === 'success') {
                     $.jGrowl('Congratz! You buy 100 platinium for 50D! Points!');
                    
-                    // maj affichage
                     DI.api('/action/on-load-mine-page/run', function(response) {
-                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
-                            .playerNbAttack(response.data.player.dynProp.nbAttack)
-                            .currentLvl(response.data.current.lvl)
-                            .currentProduction(response.data.current.production)
-                            .nextLvl(response.data.next.lvl)
-                            .nextProduction(response.data.next.production)
-                            .nextCost(response.data.next.cost)
-                            .nextXpMin(response.data.next.xpMin);
+                        ko.mapping.fromJS(response.data, myViewModel);
                     });
                } else {
                     $.jGrowl(response.message);

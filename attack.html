@@ -56,42 +56,36 @@
                     <table class="linePlayer">
                         <tbody>
                             <tr>
-                                <td class="name"><span data-bind="text: players()[0].player.name"></span></td>
-                                <td class="xp"><span data-bind="text: players()[0].player.dynProp.xp"></span></td>
-                                <td class="spy"><a data-bind="attr: {href: players()[0].spy}"><div class="spyButton">Spy</div></a></td>
-                                <td class="attack"><a data-bind="attr: {href: players()[0].attack}"><div class="attackButton">Attack</div></a></td>
+                                <td class="name"></td>
+                                <td class="xp"></td>
+                                <td class="spy"></td>
+                                <td class="attack"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div id="hudMiddleContent" data-bind="template: {name: 'template', foreach: players, templateOptions: {first: players()[0]}}">
-                    <!-- inject template -->
+                <div id="hudMiddleContent" data-bind="foreach: players">
+                    <table class="linePlayer">
+                        <tbody>
+                            <tr>
+                                <td class="name"><span data-bind="text: player.name"></span></td>
+                                <td class="xp"><span data-bind="text: player.dynProp.xp"></span></td>
+                                <td class="spy"><a data-bind="attr: {href: spy}"><div class="spyButton">Spy</div></a></td>
+                                <td class="attack"><a data-bind="attr: {href: attack}"><div class="attackButton">Attack</div></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div id="hudBottom">
                 <div id="logout">Logout</div>
             </div>
         </div>
-        <script src="static/js/lib/all.js"></script>
-        <script src="static/js/lib/jquery-1.7.min.js"></script>
-        <script src="static/js/lib/jquery.tmpl.js"></script>
-        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery-1.7.1.min.js"></script>
+        <script src="static/js/lib/knockout-2.0.0.js"></script>
+        <script src="static/js/lib/knockout.mapping-latest.js"></script>
         <script src="static/js/lib/jquery.jgrowl.js"></script>
         <script src="static/js/attack.js"></script>
         <script src="static/js/connect.js"></script>
-        <script id="template" type="text/html">
-            {{if $item.first !== $data}}
-                <table class="linePlayer">
-                    <tbody>
-                        <tr>
-                            <td class="name"><span data-bind="text: player.name"></span></td>
-                            <td class="xp"><span data-bind="text: player.dynProp.xp"></span></td>
-                            <td class="spy"><a data-bind="attr: {href: spy}"><div class="spyButton">Spy</div></a></td>
-                            <td class="attack"><a data-bind="attr: {href: attack}"><div class="attackButton">Attack</div></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            {{/if}}
-        </script>
     </body>
 </html>

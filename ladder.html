@@ -54,33 +54,27 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="hudMiddleContent" data-bind="template: {name: 'template'}">
-                    <!-- inject template -->
+                <div id="hudMiddleContent">
+                    <table class="ladder" data-bind="foreach: ladder">
+                        <tbody>
+                            <tr>
+                                <td class="position" data-bind="text: index"></td>
+                                <td class="player" data-bind="text: player.name"></td>
+                                <td class="xp" data-bind="text: player.dynProp.xp"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div id="hudBottom">
                 <div id="logout">Logout</div>
             </div>
         </div>
-        <script src="static/js/lib/all.js"></script>
-        <script src="static/js/lib/jquery-1.7.min.js"></script>
-        <script src="static/js/lib/jquery.tmpl.js"></script>
-        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery-1.7.1.min.js"></script>
+        <script src="static/js/lib/knockout-2.0.0.js"></script>
+        <script src="static/js/lib/knockout.mapping-latest.js"></script>
         <script src="static/js/lib/jquery.jgrowl.js"></script>
         <script src="static/js/ladder.js"></script>
         <script src="static/js/connect.js"></script>
-        <script id="template" type="text/html">
-            <table id="ladder">
-                <tbody>
-                    {{each(i, val) ladder}}
-                        <tr>
-                            <td class="position">${val.index}</td>
-                            <td class="player">${val.player.name}</td>
-                            <td class="xp">${val.player.dynProp.xp}</td>
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </script>
     </body>
 </html>
