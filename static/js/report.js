@@ -17,14 +17,8 @@
  */
 function onLoad(response) {
     DI.api('/action/on-load-report-page/run', function(response) {
-        var myViewModel = {
-            platiniumQuantity: response.data.platinium.quantity,
-            playerPop: response.data.player.dynProp.pop,
-            playerXp: response.data.player.dynProp.xp,
-            playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
-            messages: response.data.player.dynProp.messages
-        };
-
+        var myViewModel = ko.mapping.fromJS(response.data);
+        
         ko.applyBindings(myViewModel);
     });
 }

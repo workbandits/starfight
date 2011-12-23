@@ -31,41 +31,40 @@
         <div id="site">
             <div id="ban"></div>
             <div id="hudTop">
-                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
-                <div id="xp"><span data-bind="text: playerXp"></span></div>
-                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="resource"><span data-bind="text: platinium.quantity"></span></div>
+                <div id="xp"><span data-bind="text: player.dynProp.xp"></span></div>
+                <div id="pop"><span data-bind="text: player.dynProp.pop"></span></div>
                 <div id="nav">
                     <a href="report.html"><div class="buttonNav">Report</div></a>
                     <a href="resource.html"><div class="buttonNavActive">Resource</div></a>
                     <a href="army.html"><div class="buttonNav">Army</div></a>
-                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: player.dynProp.nbAttack"></span></div></a>
                     <a href="ladder.html"><div class="buttonNav">Ladder</div></a>
                 </div>
             </div>
             <div id="hudMiddle">
                 <div id="hudMiddleContent">
                     <div id="current">
-                        <div class="left">Level <span data-bind="text: currentLvl"></span></div>
+                        <div class="left">Level <span data-bind="text: current.lvl"></span></div>
                         <div id="production">
                             <p><a href="/in-app-purchase/more-platinium/buy" id="buyPlatinium">More platinium</a></p>
                             <p>Production :</p>
-                            <p><span data-bind="text: currentProduction"></span> by hour</p>
+                            <p><span data-bind="text: current.production"></span> by hour</p>
                         </div>
                     </div>
                     <div id="next">
-                        <div id="lvlNext">Level <span data-bind="text: nextLvl"></span></div>
-                        <div id="xpMin">XP Min<br/> <span data-bind="text: nextXpMin"></span></div>
-                        <div id="productionNext"><span data-bind="text: nextProduction"></span> by hour</div>
-                        <a href="/action/upgrade-mine/run" id="upgradeMine"><div id="upgrade"><span data-bind="text: nextCost"></span></div></a>
+                        <div id="lvlNext">Level <span data-bind="text: next.lvl"></span></div>
+                        <div id="xpMin">XP Min<br/> <span data-bind="text: next.xpMin"></span></div>
+                        <div id="productionNext"><span data-bind="text: next.production"></span> by hour</div>
+                        <a href="/action/upgrade-mine/run" id="upgradeMine"><div id="upgrade"><span data-bind="text: next.cost"></span></div></a>
                     </div>
                     <div id="logout">Logout</div>
                 </div>
             </div>
         </div>
-        <script src="static/js/lib/all.js"></script>
-        <script src="static/js/lib/jquery-1.7.min.js"></script>
-        <script src="static/js/lib/jquery.tmpl.js"></script>
-        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery-1.7.1.min.js"></script>
+        <script src="static/js/lib/knockout-2.0.0.js"></script>
+        <script src="static/js/lib/knockout.mapping-latest.js"></script>
         <script src="static/js/lib/jquery.jgrowl.js"></script>
         <script src="static/js/resource.js"></script>
         <script src="static/js/connect.js"></script>

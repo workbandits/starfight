@@ -30,40 +30,38 @@
         <div id="site">
             <div id="ban"></div>
             <div id="hudTop">
-                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
-                <div id="xp"><span data-bind="text: playerXp"></span></div>
-                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="resource"><span data-bind="text: platinium.quantity"></span></div>
+                <div id="xp"><span data-bind="text: player.dynProp.xp"></span></div>
+                <div id="pop"><span data-bind="text: player.dynProp.pop"></span></div>
                 <div id="nav">
                     <a href="report.html"><div class="buttonNavActive">Report</div></a>
                     <a href="resource.html"><div class="buttonNav">Resource</div></a>
                     <a href="army.html"><div class="buttonNav">Army</div></a>
-                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="attack.html"><div class="buttonNav">Attack <span data-bind="text: player.dynProp.nbAttack"></span></div></a>
                     <a href="ladder.html"><div class="buttonNav">Ladder</div></a>
                 </div>
             </div>
             <div id="hudMiddle">
-                <div id="hudMiddleContent" data-bind="template: {name: 'template', foreach: messages}">
-                    <!-- inject template -->
+                <div id="hudMiddleContent" data-bind="foreach: player.dynProp.messages">
+                    <!-- ko if: status() === 'spy' -->
+                    <p><span data-bind="text: date"></span> You spy <span data-bind="text: player" class="player"></span> : <span data-bind="text: pop"></span> units, <span data-bind="text: platinium"></span> platinium.</p>
+                    <!-- /ko -->
+                    <!-- ko if: status() === 'win' -->
+                    <p><span data-bind="text: date"></span> You win against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You win <span data-bind="text: platinium"></span> platinium.</p>
+                    <!-- /ko -->
+                    <!-- ko if: status() === 'lose' -->
+                    <p><span data-bind="text: date"></span> You lose against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You lose <span data-bind="text: platinium"></span> platinium.</p>
+                    <!-- /ko -->
                 </div>
             </div>
             <div id="hudBottom">
                 <div id="logout">Logout</div>
             </div>
         </div>
-        <script src="static/js/lib/all.js"></script>
-        <script src="static/js/lib/jquery-1.7.min.js"></script>
-        <script src="static/js/lib/jquery.tmpl.js"></script>
-        <script src="static/js/lib/knockout-1.2.1.js"></script>
+        <script src="static/js/lib/jquery-1.7.1.min.js"></script>
+        <script src="static/js/lib/knockout-2.0.0.js"></script>
+        <script src="static/js/lib/knockout.mapping-latest.js"></script>
         <script src="static/js/report.js"></script>
         <script src="static/js/connect.js"></script>
-        <script id="template" type="text/html">
-            {{if $data.status === 'spy'}}
-                <p><span data-bind="text: date"></span> You spy <span data-bind="text: player" class="player"></span> : <span data-bind="text: pop"></span> units, <span data-bind="text: platinium"></span> platinium.</p>
-            {{else $data.status === 'win'}}
-                <p><span data-bind="text: date"></span> You win against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You win <span data-bind="text: platinium"></span> platinium.</p>
-            {{else}}
-                <p><span data-bind="text: date"></span> You lose against <span data-bind="text: player" class="player"></span>. You lose <span data-bind="text: pop"></span> units. You lose <span data-bind="text: platinium"></span> platinium.</p>
-            {{/if}}
-        </script>
     </body>
 </html>
