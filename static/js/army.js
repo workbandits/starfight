@@ -74,6 +74,10 @@ function onLoad(response) {
                 if (response.data.status == 'success') {
                     // message
                     $.jGrowl(response.data.message);
+                    
+                    $.each(response.data.achievements, function(index, value) {
+                       $.jGrowl(value.achievement.name + ' unlocked! You dingg it!'); 
+                    });
 
                     // update display
                     DI.api('/action/on-load-army-page/run', function(response) {
