@@ -76,7 +76,7 @@ function onLoad(response) {
                     $.jGrowl(response.data.message);
                     
                     $.each(response.data.achievements, function(index, value) {
-                       $.jGrowl(value.achievement.name + ' unlocked! You dingg it!'); 
+                       $.jGrowl(value.achievementTemplate.name + ' unlocked! You dingg it!'); 
                     });
 
                     // update display
