@@ -31,14 +31,14 @@
         <div id="site">
             <div id="ban"></div>
             <div id="hudTop">
-                <div id="resource"><span data-bind="text: platiniumQuantity"></span></div>
-                <div id="xp"><span data-bind="text: playerXp"></span></div>
-                <div id="pop"><span data-bind="text: playerPop"></span></div>
+                <div id="resource"><span data-bind="text: player.dynProp.platinium"></span></div>
+                <div id="xp"><span data-bind="text: player.dynProp.xp"></span></div>
+                <div id="pop"><span data-bind="text: player.dynProp.pop"></span></div>
                 <div id="nav">
                     <a href="report.html"><div class="buttonNav">Report</div></a>
                     <a href="resource.html"><div class="buttonNav">Resource</div></a>
                     <a href="army.html"><div class="buttonNav">Army</div></a>
-                    <a href="attack.html"><div class="buttonNavActive">Attack <span data-bind="text: playerNbAttack"></span></div></a>
+                    <a href="attack.html"><div class="buttonNavActive">Attack <span data-bind="text: player.dynProp.nbAttack"></span></div></a>
                     <a href="ladder.html"><div class="buttonNav">Ladder</div></a>
                 </div>
             </div>
@@ -68,8 +68,8 @@
                     <table class="linePlayer">
                         <tbody>
                             <tr>
-                                <td class="name"><span data-bind="text: player.name"></span></td>
-                                <td class="xp"><span data-bind="text: player.dynProp.xp"></span></td>
+                                <td class="name"><span data-bind="text: name"></span></td>
+                                <td class="xp"><span data-bind="text: dynProp.xp"></span></td>
                                 <td class="spy"><a data-bind="attr: {href: spy}"><div class="spyButton">Spy</div></a></td>
                                 <td class="attack"><a data-bind="attr: {href: attack}"><div class="attackButton">Attack</div></a></td>
                             </tr>
