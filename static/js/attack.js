@@ -15,30 +15,32 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-function onLoad(response) {
-    DI.api('/action/on-load-attack-page/run', function(response) {
-        var myViewModel = {
-            platiniumQuantity: ko.observable(response.data.platinium.quantity),
-            playerPop: response.data.player.dynProp.pop,
-            playerXp: response.data.player.dynProp.xp,
-            playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
-            players: ko.observableArray(response.data.players)
+var playerModel = function(data) {
+    ko.mapping.fromJS(data, {}, this);
+    
+    this.spy = ko.computed(function() {
+        return '/action/spy/run?id=' + this.id();
+    }, this);
+    this.attack = ko.computed(function() {
+        return '/action/attack/run?id=' + this.id();
+    }, this);
+}
+            
+var mapping = {
+    'players': {
+        create: function(options) {
+            return new playerModel(options.data);
         }
+    }
+}
+function onLoad(response) {
+    if (response.status == 'notConnected' || response.status == 'unknown') {
+        document.location.href='index.html';
+    }
+    
+    DI.api('/action/on-load-attack-page/run', function(response) {
+        var myViewModel = ko.mapping.fromJS(response.data, mapping);
         
-        myViewModel.players = ko.dependentObservable(function() {
-            var result = [];
-            
-            ko.utils.arrayForEach(this.players(), function(player) {
-               result.push({
-                  player: player,
-                  spy: '/action/spy/run?id=' + player.id,
-                  attack: '/action/attack/run?id=' + player.id
-               });
-            });
-            
-            return result;
-        }, myViewModel); 
-         
         ko.applyBindings(myViewModel);
         
         $('td a').on('click', function(e) {

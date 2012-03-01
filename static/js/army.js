@@ -16,52 +16,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 function onLoad(response) {
+    if (response.status == 'notConnected' || response.status == 'unknown') {
+        document.location.href='index.html';
+    }
+    
     DI.api('/action/on-load-army-page/run', function(response) {
-        
-        function mapDictionaryToArray(dictionary) {
-            var result = [];
-            for (var key in dictionary) {
-                if (dictionary.hasOwnProperty(key)) {
-                    result.push({key: key, value: dictionary[key]}); 
-                }  
-            }
-
-            return result;
-        }
-        
-        function getQuantity(dictionary, ref) {
-            for (var i = 0; i < dictionary.length; i++) {
-                if (dictionary[i].key === ref) {
-                    return dictionary[i].value.quantity;
-                }
-            }
-            
-            return 0;
-        }
-        
-        var myViewModel = {
-            platiniumQuantity: ko.observable(response.data.platinium.quantity),
-            playerPop: ko.observable(response.data.player.dynProp.pop),
-            playerXp: response.data.player.dynProp.xp,
-            playerNbAttack: ko.observable(response.data.player.dynProp.nbAttack),
-            playerAttack: ko.observable(response.data.player.dynProp.attack),
-            playerDefense: ko.observable(response.data.player.dynProp.defense),
-            army: ko.observableArray(mapDictionaryToArray(response.data.army)),
-            items: ko.observableArray(response.data.items)
-        }
-        
-        myViewModel.inventory = ko.dependentObservable(function() {
-            var result = [];
-            
-            ko.utils.arrayForEach(this.items(), function(item) {
-                result.push({
-                    quantity: getQuantity(myViewModel.army(), item.ref),
-                    item: item
-                });
-            });
-            
-            return result;
-        }, myViewModel);
+        var myViewModel = ko.mapping.fromJS(response.data);
         
         ko.applyBindings(myViewModel);
         
@@ -70,24 +30,21 @@ function onLoad(response) {
 
             var inputNode = $(this).prev();
 
-            DI.api('/action/create-army/run', 'post', {"ref": inputNode.attr('name'), "quantity": inputNode.val()}, function(response) {
+            DI.api('/action/create-army/run', 'post', {
+                "ref": inputNode.attr('name'), 
+                "quantity": inputNode.val()
+            }, function(response) {
                 if (response.data.status == 'success') {
+                    // update display
+                    DI.api('/action/on-load-army-page/run', function(response) {
+                        ko.mapping.fromJS(response.data, myViewModel);
+                    });
+                    
                     // message
                     $.jGrowl(response.data.message);
                     
                     $.each(response.data.achievements, function(index, value) {
-                       $.jGrowl(value.achievementTemplate.name + ' unlocked! You dingg it!'); 
-                    });
-
-                    // update display
-                    DI.api('/action/on-load-army-page/run', function(response) {
-                        myViewModel.platiniumQuantity(response.data.platinium.quantity)
-                        .playerPop(response.data.player.dynProp.pop)
-                        .playerNbAttack(response.data.player.dynProp.nbAttack)
-                        .playerAttack(response.data.player.dynProp.attack)
-                        .playerDefense(response.data.player.dynProp.defense)
-                        .army(mapDictionaryToArray(response.data.army))
-                        .items(response.data.items);
+                       $.jGrowl(value.template.name + ' unlocked! You dingg it!'); 
                     });
                 } else {
                     // message

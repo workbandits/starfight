@@ -16,6 +16,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 function onLoad(response) {
+    if (response.status == 'notConnected' || response.status == 'unknown') {
+        document.location.href='index.html';
+    }
+    
     DI.api('/action/on-load-report-page/run', function(response) {
         var myViewModel = ko.mapping.fromJS(response.data);
         

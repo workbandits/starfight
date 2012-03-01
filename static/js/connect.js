@@ -19,56 +19,46 @@ window.diAsyncInit = function() {
     DI.init({
         apiKey: '2e3824b2dc3d4da0aad123b881427d67', 
         status: true,
-        cookie: true
+        cookie: true,
+        logging: true
     });
     
     /* All the events registered */
     DI.Event.subscribe('auth.login', function(response) {
-        // do something with response
-        login();
+        if (response.status == 'connected') {
+            document.location.href='report.html';
+        }
     });
     
     DI.Event.subscribe('auth.logout', function(response) {
-        // do something with response
-        logout();
+        document.location.href='index.html';
+    });
+    
+    DI.Event.subscribe('auth.sessionChange', function(response) {
+        if (response.status == 'notConnected' || response.status == 'unknown') {
+            document.location.href='index.html';
+        }
     });
     
     DI.getLoginStatus(function(response) {
-        if (response.session) {
-           onLoad(response);
-        }
+        onLoad(response);
     });
 };
 (function() {
     var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol + '//localhost/starfight/static/js/lib/all.js';
+    e.src = document.location.protocol + '//www.dingg.it/api/all.js';
     var s = document.getElementsByTagName('script')[0]; 
     s.parentNode.insertBefore(e, s);
 }());
 
-function login() {
-    DI.login(function(response) {
-        if (response.session) {
-            document.location.href='report.html';
-        }
-    });
-}
-
-function logout() {
-    DI.logout(function() {
-        
-    });
-    document.location.href='index.html';
-}
-
 $('#login').on('click', function(e) {
     e.preventDefault();
     
-    login();
+    DI.login(function(response) {});
 });
 
 $('#logout').on('click', function(e) {
     e.preventDefault();
     
-    logout();
+    DI.logout(function(response) {});
 });
