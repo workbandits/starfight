@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-var playerModel = function(data) {
+var playersModel = function(data) {
     ko.mapping.fromJS(data, {}, this);
     
     this.spy = ko.computed(function() {
@@ -29,7 +29,7 @@ var playerModel = function(data) {
 var mapping = {
     'players': {
         create: function(options) {
-            return new playerModel(options.data);
+            return new playersModel(options.data);
         }
     }
 }

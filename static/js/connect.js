@@ -17,7 +17,7 @@
  */
 window.diAsyncInit = function() {
     DI.init({
-        apiKey: 'fake_api_key', 
+        apiKey: '6815553c2a68472c8e399ebb4106fad5', 
         status: true,
         cookie: true,
         logging: true
@@ -25,28 +25,40 @@ window.diAsyncInit = function() {
     
     /* All the events registered */
     DI.Event.subscribe('auth.login', function(response) {
-        if (response.status == 'connected') {
-            document.location.href='report.html';
-        }
+        document.location.href = 'dashboard.html'; 
     });
-    
     DI.Event.subscribe('auth.logout', function(response) {
         document.location.href='index.html';
     });
-    
-    DI.Event.subscribe('auth.sessionChange', function(response) {
-        if (response.status == 'notConnected' || response.status == 'unknown') {
-            document.location.href='index.html';
+    DI.Event.subscribe('auth.statusChange', function(response) {
+        if ($('#di_connected').length != 0) {
+            if (response.status == 'connected') {
+                onLoad(response);
+            } else {
+                DI.login(function(response) {
+                    if (response.status == 'connected') {
+                        onLoad(response);
+                    }
+                }, {
+                    'display':'silent'
+                });
+            }
+        } else {
+            if (!endsWith(document.location.href, 'index.html')) {
+                if (response.status == 'connected') {
+                    DI.logout(function(response) {});
+                    document.location.href = 'index.html';
+                } else {
+                    onLoad(response);
+                }   
+            }
         }
-    });
-    
-    DI.getLoginStatus(function(response) {
-        onLoad(response);
     });
 };
 (function() {
     var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol + '//www.dingg.it/api/all.js';
+    e.src = document.location.protocol + '//192.168.0.21/starfight/static/js/lib/all.js';
+    //e.src = document.location.protocol + '//www.dingg.it/api/all.js';
     var s = document.getElementsByTagName('script')[0]; 
     s.parentNode.insertBefore(e, s);
 }());
@@ -57,8 +69,6 @@ $('#login').on('click', function(e) {
     DI.login(function(response) {});
 });
 
-$('#logout').on('click', function(e) {
-    e.preventDefault();
-    
-    DI.logout(function(response) {});
-});
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
